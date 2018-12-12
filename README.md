@@ -76,5 +76,5 @@ node v8.9.4 npm v6.4.1
 
 ```html
 1.建议使用npm而不是yarn
-2.开发时不建议全局翻墙
+2.开发时不建议全局翻墙, 有可能导致webpack-dev-server报错
 ```

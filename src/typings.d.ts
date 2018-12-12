@@ -1,2 +1,1 @@
-declare module "gago-react";
-declare module "lodash/flattenDeep";
+declare type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;

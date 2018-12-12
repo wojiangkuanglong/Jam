@@ -1,0 +1,14 @@
+@import "./_variables";
+@import "./_mixin";
+
+body {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  font-size: $global-font-size;
+  font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif, "宋体";
+  color: $global-font-black !important;
+  #root {
+    height: 100%;
+  }
+}

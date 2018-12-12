@@ -1,0 +1,57 @@
+@import "../../styles/variables";
+@import "../../styles/mixin";
+
+$deep-bg-top: 2px;
+$logo-width: 150px;
+$triangle-width: 30px;
+
+.default-page-wrapper {
+  height: 100%;
+  .header-wrapper {
+    @include size(100%, $header-height);
+    background-image: linear-gradient(to bottom, rgba(1, 68, 134, 0.91), rgba(0, 85, 171, 0.95));
+    box-shadow: 0 1px 9px 0 rgba(0, 0, 0, 0.35), 0 0 1px 0 rgba(0, 0, 0, 0.55);
+    overflow: hidden;
+    .logo {
+      width: $logo-width;
+      font-size: $logo-font-size;
+      color: #fff;
+      line-height: $header-height;
+      letter-spacing: 6px;
+      font-weight: normal;
+      float: left;
+      text-align: center;
+    }
+    .triangle {
+      float: left;
+      margin-top: $deep-bg-top;
+      width: 0;
+      height: 0;
+      border-color: $deep-bg transparent;
+      border-width: 0 0 ($header-height - $deep-bg-top) $triangle-width;
+      border-style: solid;
+    }
+    .deep-color {
+      height: ($header-height - $deep-bg-top);
+      float: left;
+      margin-top: $deep-bg-top;
+      width: calc(100% - 180px);
+      background: $deep-bg;
+      a {
+        display: inline-block;
+        text-align: center;
+        @include size($nav-width, $header-height - $deep-bg-top);
+        line-height: $header-height - $deep-bg-top;
+        color: opacity-white(0.55);
+        letter-spacing: 0.1em;
+        text-decoration: none;
+        &:hover {
+          color: opacity-white(1);
+        }
+      }
+      a.active {
+        color: opacity-white(1);
+      }
+    }
+  }
+}

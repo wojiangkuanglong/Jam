@@ -1,0 +1,26 @@
+// Calculate
+@function residual-percent($args) {
+  @return 100% - $args;
+}
+@function opacity-white($opacity) {
+  @return rgba(255, 255, 255, $opacity);
+}
+@function opacity-black($opacity) {
+  @return rgba(0, 0, 0, $opacity);
+}
+
+// Media Query
+
+// Animate
+
+// LayOut
+
+// Sizing shortcuts
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+// Shape
+
+// BackGround

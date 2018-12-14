@@ -7,7 +7,12 @@ const fileRules = require('./rules/fileRules')
 const plugins = require('./plugins')
 const { assetsPath, resolve } = require('./utils')
 const optimization = require('./optimization')
+const os = require('os')
+const isWin = os.platform() === 'win32'
+const host = isWin ? '127.0.0.1' : '0.0.0.0'
+
 require('./cleanup-folder')
+
 
 module.exports = {
     entry: {
@@ -39,7 +44,7 @@ module.exports = {
       contentBase: resolve('src'),
       historyApiFallback: true, // 解决brower histroy刷新404
       port: 9527,
-      host: "0.0.0.0",
+      host
     },
     optimization,
     stats: { children: false },

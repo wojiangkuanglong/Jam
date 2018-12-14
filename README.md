@@ -21,7 +21,7 @@ node v8.9.4 npm v6.4.1
 ```html
 |--.cache           parcel打包生成的缓存文件
 |--.cache-loader    webpack cache-loader生成的缓存文件 
-|--build 
+|--scripts 
   |--rules 
     |--fileRules.js
     |--jsRules.js

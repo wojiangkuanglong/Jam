@@ -29,7 +29,7 @@ const basePlugins = [
 const devPlugins = [
     new HtmlWebpackPlugin({
         filename: 'index.html',
-        template: 'build/tpl/index.html',
+        template: 'scripts/tpl/index.html',
         inject: true // 注入body
     }),
     new CaseSensitivePathsPlugin() // 解决linux下编译路径大小写问题
@@ -39,7 +39,7 @@ const prodPlugins = [
     new webpack.WatchIgnorePlugin([/css\.d\.ts$/]), // 符合条件的文件将不会被监视，不会触发重编译
     new HtmlWebpackPlugin({
         filename: config.index,
-        template: 'build/tpl/index.html',
+        template: 'scripts/tpl/index.html',
         inject: true,
         minify: {
             removeComments: true,

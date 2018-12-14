@@ -8,27 +8,32 @@
 import React, { Component } from "react";
 import { ButtonComponent } from "../../components";
 import { HomeService } from "./home.service";
+import { incrementClicksCount, decrementClicksCount } from "./setState";
 import shortid from "shortid";
+import { ThemeContext } from "../context/context";
 
 const initialState = {
   count: 0,
   list: [],
+  globalColor: "blue",
 };
-
-const incrementClicksCount = (prevState: State) => ({
-  count: prevState.count + 1,
-});
-const decrementClicksCount = (prevState: State) => ({
-  count: prevState.count - 1,
-});
 
 type State = Readonly<typeof initialState>;
 
-export default class HomePage extends Component<any, State> {
+export default class HomePage extends Component<{}, State> {
   readonly state: State = initialState;
 
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        globalColor: "red",
+      });
+    }, 5000);
+    console.log(this.props);
+  }
+
   render() {
-    const { count, list } = this.state;
+    const { count, list, globalColor } = this.state;
     return (
       <>
         <ButtonComponent color="green" onClick={this.handleBtnClick_}>
@@ -39,7 +44,13 @@ export default class HomePage extends Component<any, State> {
             <li key={shortid.generate()}>{item.name}</li>
           ))}
         </ol>
-        <ButtonComponent onClick={this.handleIncrement_}>加</ButtonComponent>
+        <ThemeContext.Provider
+          value={{
+            globalColor,
+          }}
+        >
+          <ButtonComponent onClick={this.handleIncrement_}>加</ButtonComponent>
+        </ThemeContext.Provider>
         <span style={{ margin: "0 10px" }}>{count}</span>
         <ButtonComponent onClick={this.handleDecrement_}>减</ButtonComponent>
       </>

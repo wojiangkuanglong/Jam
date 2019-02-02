@@ -5,7 +5,13 @@ const defaultState = {
   list: [], // 列表
 };
 // 首页表单数据
-export const homeData = (state: any = defaultState, action: any = {}) => {
+export const homeData = (
+  state: {
+    count: number;
+    list: any;
+  } = defaultState,
+  action: any = {},
+) => {
   switch (action.type) {
     case home.ADDCOUNT:
       return { ...state, ...{ count: state.count + 1 } };
